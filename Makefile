@@ -92,8 +92,8 @@ test-failpoint:
 
 .PHONY: test-robustness # Running robustness tests requires root permission
 test-robustness: gofail-enable build
-	sudo env PATH=$$PATH go test -v ${TESTFLAGS} ./tests/dmflakey -test.root
-	sudo env PATH=$(PWD)/bin:$$PATH go test -v ${TESTFLAGS} ${ROBUSTNESS_TESTFLAGS} ./tests/robustness -test.root
+	env PATH=$$PATH go test -v ${TESTFLAGS} ./tests/dmflakey -test.root
+	env PATH=$(PWD)/bin:$$PATH go test -v ${TESTFLAGS} ${ROBUSTNESS_TESTFLAGS} ./tests/robustness -test.root
 
 .PHONY: test-benchmark-compare
 # Runs benchmark tests on the current git ref and the given REF, and compares
